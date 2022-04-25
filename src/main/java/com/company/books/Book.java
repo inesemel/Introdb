@@ -1,9 +1,13 @@
-package com.company;
+package com.company.books;
 
 public class Book {
     private int id;
     private String name;
     private float price;
+
+    public Book(){
+
+    }
 
     public Book(int id, String name, float price) {
         this.id = id;
@@ -18,4 +22,21 @@ public class Book {
     public float getPrice() {
         return price;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

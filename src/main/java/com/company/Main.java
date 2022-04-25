@@ -1,5 +1,10 @@
 package com.company;
 
+import com.company.books.Book;
+import com.company.dbhelper.DbConnection;
+import com.company.menu.BookMenu;
+import com.company.menu.StudentMenu;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,22 +20,38 @@ public class Main {
 //        }
 //
 
-        List<Book> myBooks = new ArrayList<>();
-        myBooks.add(new Book(1, "The Complete Tales of Winnie-The-Pooh", 26.5f));
-        myBooks.add(new Book(2, "Where Is Spot?", 4.98f));
-        myBooks.add(new Book(3, "The Giving Tree", 9.05f));
+        //Create the same class in your code and add the following fields:
+        // id(int), name(String), price(float).
+        // In your main method, create a List of books and return books that are more expensive than $5.
+//        List<Book> myBooks = new ArrayList<>();
+//        myBooks.add(new Book(1, "The Complete Tales of Winnie-The-Pooh", 26.5f));
+//        myBooks.add(new Book(2, "Where Is Spot?", 4.98f));
+//        myBooks.add(new Book(3, "The Giving Tree", 9.05f));
 
 
-        String bookList = "";
-        for (Book currentBook: myBooks) {
-            if(currentBook.getPrice() > 5){
-                bookList = bookList + currentBook.getName() + ",  ";
-            }
+//        DbConnection.getConnection();
 
-        }
-        System.out.println(bookList);
+//        String bookList = "";
+//        for (Book currentBook: myBooks) {
+//            if(currentBook.getPrice() > 5){
+//                bookList = bookList + currentBook.getName() + ",  ";
+//            }
+//
+//        }
+//        System.out.println(bookList);
 
+//        StudentMenu.menu();
+
+        BookMenu.menu();
+
+        // create a book controller and a book menu
+        // using the templates shown, and we'll demo them
     }
+
+//    public static List<Book> filterLessThanFive(List<Book> myBook){
+//        myBook.removeIf(book -> book.getPrice() < 5);
+//        return myBook;
+//    }
 
 
 

@@ -7,6 +7,10 @@ public class Student {
     private String name;
     private int age;
 
+    public Student(){
+
+    }
+
     // define constructor
     public Student(int id, String name, int age){
         this.id = id;
