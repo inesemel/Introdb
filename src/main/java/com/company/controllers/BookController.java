@@ -82,6 +82,45 @@ public class BookController {
 
     }
 
+    public static boolean editBookName() {
+        // prompting the user for data
+
+        System.out.println("Enter the new name of the book: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter the id of the book: ");
+        int id = scanner.nextInt();
+
+        try {
+            // UPDATE books SET name = ' ' WHERE id;
+            ps = getConnection().prepareStatement("UPDATE books SET name='" + name + "' WHERE id=" + id);
+
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public static boolean deleteBook() {
+        // prompting the user for data
+
+        System.out.print("Enter the id of the book: ");
+        int id = scanner.nextInt();
+
+        try {
+            // DELETE FROM table_name WHERE condition;;
+            ps = getConnection().prepareStatement("DELETE FROM books WHERE id=" + id);
+
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
 
 
 }

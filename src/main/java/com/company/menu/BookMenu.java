@@ -13,6 +13,8 @@ public class BookMenu {
         System.out.println("What do you want to do?");
         System.out.println("1. Add a new book");
         System.out.println("2. Get a book by id");
+        System.out.println("3. Edit the name of a book");
+        System.out.println("4. Delete a book");
 
         System.out.println("Select an option: ");
         int option = scanner.nextInt();
@@ -22,6 +24,12 @@ public class BookMenu {
                 break;
             case 2:
                 System.out.println(BookController.getBookById().getName());
+                break;
+            case 3:
+                System.out.println(BookController.editBookName());
+                break;
+            case 4:
+                System.out.println(BookController.deleteBook());
                 break;
             default:
                 System.out.println("Invalid option, try again");
