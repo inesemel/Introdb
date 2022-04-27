@@ -40,12 +40,19 @@ public class Main {
 //        }
 //        System.out.println(bookList);
 
-//        StudentMenu.menu();
+        // CRUD - Create, Read, Update and Delete
+        StudentMenu.menu();
 
-        BookMenu.menu();
+//        BookMenu.menu();
 
         // create a book controller and a book menu
         // using the templates shown, and we'll demo them
+
+        // attempt to add 3 student's scores into the scores table
+        // Create a method called addStudentsScores() and use that to perform the task
+        // use the id of an existing student
+
+
     }
 
 //    public static List<Book> filterLessThanFive(List<Book> myBook){

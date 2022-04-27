@@ -10,6 +10,10 @@ public class StudentMenu {
         System.out.println("What do you want to do?");
         System.out.println("1. Add a new student");
         System.out.println("2. Get a student by id");
+        System.out.println("3. Edit students name or age");
+        System.out.println("4. Delete student");
+        System.out.println("5. Add students scores");
+        System.out.println("6. Delete student's scores");
 
         System.out.println("Select an option: ");
         int option = scanner.nextInt();
@@ -19,6 +23,18 @@ public class StudentMenu {
                 break;
             case 2:
                 System.out.println(StudentController.getStudentById().getName() );
+                break;
+            case 3:
+                StudentController.editStudent();
+                break;
+            case 4:
+                StudentController.deleteStudent();
+                break;
+            case 5:
+                System.out.println(StudentController.addStudentScores() ? "Successfully added scores of the student" : "Scores not added");
+                break;
+            case 6:
+                System.out.println(StudentController.deleteScore() ? "Scores deleted" : "Scores not deleted");
                 break;
             default:
                 System.out.println("Invalid option, try again");
