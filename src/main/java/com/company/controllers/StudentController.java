@@ -99,19 +99,35 @@ public class StudentController {
         }
 
 
-        public static void deleteStudent() {
+    //    Add an overloaded deleteScore() method that takes id(int) as a parameter to you allow you
+    //    delete a student’s score when a student is deleted from the database.
+        public static boolean deleteStudentAndScores() {
             System.out.println("Enter id of the student: ");
             int id = scanner.nextInt();
+
+            // delete student
+            // delete student's scores after student's info is deleted
+
+            if(deleteScore(id) && deleteStudent(id)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public static boolean deleteStudent(int id) {
 
             try {
                 // DELETE FROM table_name WHERE condition;;
                 ps = getConnection().prepareStatement("DELETE FROM student WHERE id=" + id);
-
                 ps.execute();
+                return true;
 
             } catch (SQLException e) {
                 e.printStackTrace();
+                return false;
             }
+
         }
 
     public static boolean addStudentScores() {
@@ -151,7 +167,23 @@ public class StudentController {
 
         try {
             // DELETE FROM table_name WHERE condition;;
-            ps = getConnection().prepareStatement("DELETE FROM scores WHERE id=" + id);
+            ps = getConnection().prepareStatement("DELETE FROM scores WHERE studentid=" + id);
+
+            ps.execute();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    public static boolean deleteScore(int id) {
+
+        try {
+            // DELETE FROM table_name WHERE condition;;
+            ps = getConnection().prepareStatement("DELETE FROM scores WHERE studentid=" + id);
 
             ps.execute();
             return true;
@@ -164,7 +196,30 @@ public class StudentController {
     }
 
 
+    //    Add an editScore method, to edit a particular student’s score for a subject of choice
+    public static boolean editScores() {
+
+        System.out.print("Enter the id of the student: ");
+        int id = scanner.nextInt();
+
+        System.out.print("Enter new score: ");
+        int score = scanner.nextInt();
+
+        System.out.print("Enter the subject: ");
+        String subject = scanner.next();
+
+        try {
+            // UPDATE books SET name = ' ' WHERE id;
+            ps = getConnection().prepareStatement("UPDATE scores SET " + subject + "=" + score + " WHERE studentid=" + id);
+
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return false;
+        }
     }
+}
 
 
 
