@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.books.Book;
 import com.company.dbhelper.DbConnection;
+import com.company.login.Auth;
 import com.company.menu.BookMenu;
 import com.company.menu.StudentMenu;
 
@@ -41,8 +42,13 @@ public class Main {
 //        System.out.println(bookList);
 
         // CRUD - Create, Read, Update and Delete
-        StudentMenu.menu();
+//        StudentMenu.menu();
 
+        if (Auth.signUpUser()) {
+            StudentMenu.menu();
+        } else {
+            System.out.println("Invalid login credentials");
+        }
 //        BookMenu.menu();
 
         // create a book controller and a book menu

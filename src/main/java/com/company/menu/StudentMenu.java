@@ -29,8 +29,7 @@ public class StudentMenu {
                 StudentController.editStudent();
                 break;
             case 4:
-                System.out.println(StudentController.deleteStudentAndScores() ? "Successfully deleted student's info and scores"
-                        : "Student and scores not deleted");
+                StudentController.deleteStudent();
                 break;
             case 5:
                 System.out.println(StudentController.addStudentScores() ? "Successfully added scores of the student" :

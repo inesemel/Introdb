@@ -29,8 +29,8 @@ public class StudentController {
 
         try {
             // INSERT INTO student(name, age) VALUES('name', age);
-            ps = getConnection().prepareStatement("INSERT INTO student(name, age) VALUES('" + name + "', " + age + ")");
-
+            ps = getConnection().prepareStatement("INSERT INTO student(name, age) " +
+                    "VALUES('" + name + "', " + age + ")");
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -101,31 +101,33 @@ public class StudentController {
 
     //    Add an overloaded deleteScore() method that takes id(int) as a parameter to you allow you
     //    delete a student’s score when a student is deleted from the database.
-        public static boolean deleteStudentAndScores() {
+//        public static boolean deleteStudentAndScores() {
+//            System.out.println("Enter id of the student: ");
+//            int id = scanner.nextInt();
+//
+//            // delete student
+//            // delete student's scores after student's info is deleted
+//
+//            if(deleteScore(id) && deleteStudent(id)) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        }
+
+        public static void deleteStudent() {
+
             System.out.println("Enter id of the student: ");
             int id = scanner.nextInt();
-
-            // delete student
-            // delete student's scores after student's info is deleted
-
-            if(deleteScore(id) && deleteStudent(id)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        public static boolean deleteStudent(int id) {
-
             try {
                 // DELETE FROM table_name WHERE condition;;
+                deleteScore(id);
                 ps = getConnection().prepareStatement("DELETE FROM student WHERE id=" + id);
                 ps.execute();
-                return true;
+                System.out.println("Successfully deleted student's info and scores");
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                return false;
             }
 
         }
@@ -179,18 +181,17 @@ public class StudentController {
 
     }
 
-    public static boolean deleteScore(int id) {
+    public static void deleteScore(int id) {
 
         try {
             // DELETE FROM table_name WHERE condition;;
             ps = getConnection().prepareStatement("DELETE FROM scores WHERE studentid=" + id);
 
             ps.execute();
-            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+
         }
 
     }
