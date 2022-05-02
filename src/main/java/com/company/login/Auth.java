@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.company.dbhelper.DbConnection.getConnection;
 
@@ -40,8 +42,9 @@ public class Auth {
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
-        boolean matcher = emailRegex.matches(username);
-        if(matcher) {
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(username);
+        if(matcher.matches()) {
             if(role.equalsIgnoreCase("user") || role.equalsIgnoreCase("admin")) {
 
                 try {

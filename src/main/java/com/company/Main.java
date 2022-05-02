@@ -3,6 +3,8 @@ package com.company;
 import com.company.books.Book;
 import com.company.dbhelper.DbConnection;
 import com.company.login.Auth;
+import com.company.login.Login;
+import com.company.menu.AuthorMenu;
 import com.company.menu.BookMenu;
 import com.company.menu.StudentMenu;
 
@@ -43,13 +45,19 @@ public class Main {
 
         // CRUD - Create, Read, Update and Delete
 //        StudentMenu.menu();
-
-        if (Auth.signUpUser()) {
-            StudentMenu.menu();
-        } else {
-            System.out.println("Invalid login credentials");
-        }
 //        BookMenu.menu();
+
+        //Authentication
+//        Auth.signUpUser();
+        //Login
+//        if (Login.logIn()) {
+//            StudentMenu.menu();
+//        } else {
+//            System.out.println("Invalid login credentials");
+//        }
+
+        AuthorMenu.menu();
+
 
         // create a book controller and a book menu
         // using the templates shown, and we'll demo them
